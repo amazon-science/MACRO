@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Batch SR worker — runs either PFT-SR (default) or Real-ESRGAN on a
 dedicated GPU for all crops in a directory.
 

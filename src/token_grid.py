@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Token-count -> feature-map (H, W) lookup used by the attention masks."""
 import math
 

@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Depth-plane decomposition and confidence/occlusion masks for MACRO.
 
 `compute_disparity_bins` clusters a rendered depth map into M fronto-parallel

@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Aggregate MACRO evaluation results across scenes into a summary table.
 
 Reads the per-scene ``aggregate_results_progressive.json`` files written by

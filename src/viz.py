@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Visualization helpers (debug dashboards, coverage/depth panels).
 
 None of this affects the enhanced output or the reported metrics; it only runs

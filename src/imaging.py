@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Small image helpers shared across the pipeline (resize + labeled panels)."""
 from PIL import Image, ImageDraw, ImageFont
 

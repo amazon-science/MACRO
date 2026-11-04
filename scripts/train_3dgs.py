@@ -1,3 +1,5 @@
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: CC-BY-NC-4.0
 """Train the 3DGS model for a scene with gsplat v1.4.0's unmodified examples/simple_trainer.py.
 
 Same CLI as simple_trainer.py. Two differences from running it directly:
