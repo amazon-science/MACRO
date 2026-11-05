@@ -2,7 +2,7 @@
 # Install into a fresh env, then: pip install gsplat==1.4.0 (needs CUDA toolkit).
 
 # --- core DL ---
-torch==2.8.0
+torch==2.13.0
 torchvision==0.23.0
 torchmetrics==1.8.2
 pytorch-msssim==1.0.0
