@@ -221,6 +221,10 @@ on idle GPUs.
 }
 ```
 
+## Security
+
+See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+
 ## License
 
 **Code:** this repository is released under the [CC-BY-NC-4.0](LICENSE) license.
