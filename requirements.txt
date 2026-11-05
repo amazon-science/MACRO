@@ -11,7 +11,7 @@ pytorch-msssim==1.0.0
 gsplat==1.4.0
 
 # --- DiFix diffusion enhancer ---
-diffusers==0.25.1
+diffusers==0.38.0
 transformers==4.38.0
 huggingface-hub==0.25.1
 peft==0.9.0          # pin: newer peft breaks the DreamSim/DiFix LoRA configs
