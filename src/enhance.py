@@ -50,9 +50,8 @@ from viz import (
 )
 
 # ------------------------------------------------------------------------------
-# Module-level runtime config (used by main_video_pipeline). These were part of
-# the internal standalone runner; kept here for the public entry point
-# (src/evaluate.py), which imports main_video_pipeline().
+# Module-level runtime config (used by main_video_pipeline), read by the public
+# entry point (src/evaluate.py), which imports main_video_pipeline().
 # ------------------------------------------------------------------------------
 NUM_ENHANCE_PASSES = 1                          # DiFix passes per closeup (1 = single pass)
 ENABLE_VIZ = bool(int(os.environ.get("ENABLE_VIZ", "0")))  # save per-frame ECA viz dashboards
@@ -1735,6 +1734,5 @@ def main_video_pipeline(
     return scene_avg, pipe
 
 
-# NOTE: the standalone __main__ batch runner from the internal repo was removed
-# for the public release. Use src/evaluate.py as the entry point;
-# it imports main_video_pipeline() from this module.
+# NOTE: this module has no __main__ entry point. Use src/evaluate.py, which
+# imports main_video_pipeline() from this module.

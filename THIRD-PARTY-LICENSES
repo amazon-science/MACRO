@@ -18,6 +18,8 @@ sources under those sources' terms.
    that covers the SD-Turbo model DiFix builds on; both are reproduced below.
    MACRO modifies DiFix's reference-mixing (attention) layers and inference code
    (src/attention.py, src/difix_pipeline.py, src/mv_unet.py).
+   examples/gsplat/datasets/colmap.py (Parser) is taken from DiFix3D's
+   examples/gsplat/, which adapts gsplat's COLMAP parser (see 2. gsplat).
 -------------------------------------------------------------------------------
 
 NVIDIA License
@@ -101,7 +103,9 @@ DEFINITIONS
    https://github.com/nerfstudio-project/gsplat
    Copyright 2025 Nerfstudio Team
    License: Apache License 2.0
-   examples/gsplat/ contains files adapted from gsplat v1.4.0's examples/.
+   examples/gsplat/ contains files adapted from gsplat v1.4.0's examples/:
+   examples/gsplat/utils.py and examples/gsplat/datasets/normalize.py are
+   unmodified copies; examples/gsplat/datasets/colmap.py is modified (via DiFix3D).
 -------------------------------------------------------------------------------
 
                                  Apache License

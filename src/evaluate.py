@@ -81,7 +81,7 @@ _local_datasets.__path__ = [_pkg_path]
 sys.modules["_local_datasets"] = _local_datasets
 
 # Load dependent submodules first (colmap.py imports from .normalize etc.)
-for _sub in ["normalize", "traj", "colmap"]:
+for _sub in ["normalize", "colmap"]:
     _src_path = os.path.join(_pkg_path, f"{_sub}.py")
     if os.path.exists(_src_path):
         _spec = importlib.util.spec_from_file_location(f"_local_datasets.{_sub}", _src_path)
@@ -89,7 +89,6 @@ for _sub in ["normalize", "traj", "colmap"]:
         sys.modules[f"_local_datasets.{_sub}"] = _mod
         _spec.loader.exec_module(_mod)
 
-Dataset = sys.modules["_local_datasets.colmap"].Dataset
 Parser = sys.modules["_local_datasets.colmap"].Parser
 from utils import knn, rgb_to_sh, set_random_seed
 from gsplat.rendering import rasterization
