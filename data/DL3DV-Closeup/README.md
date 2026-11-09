@@ -10,9 +10,9 @@ split as the manifest.
 
 ```
 DL3DV-Closeup/<scene_id>/
-  images/        # the training_frames, from the scene's DL3DV images (images_4 / data_factor 4)
-  closeup_gt/    # the closeup frames (keys of closeup_poses), same source
-  sparse/0/      # COLMAP model covering those views (cameras.bin, images.bin, points3D.bin)
+  images/        # ONLY the training_frames, from the scene's DL3DV images (images_4 / data_factor 4)
+  closeup_gt/    # the closeup frames (keys of closeup_poses), same source; not in images/
+  sparse/0/      # DL3DV's COLMAP model reduced to the training_frames (see the main README)
   split.json     # copy the matching <scene_id>.json from this folder
 ```
 
@@ -31,5 +31,6 @@ DL3DV-Closeup/<scene_id>/
 | `num_training_frames`, `num_closeup_pairs` | Convenience counts. |
 
 Frame filenames match DL3DV's `nerfstudio` naming, so the manifest maps directly onto a
-standard DL3DV scene. Poses are in the same world frame as the scene's COLMAP model, which
-is why any COLMAP covering the listed views works for rendering.
+standard DL3DV scene. The close-up poses are in the frame of the scene's DL3DV
+`nerfstudio/transforms.json`; set `DL3DV_ROOT` (see the main README) so `evaluate.py` can
+align them to the COLMAP model.

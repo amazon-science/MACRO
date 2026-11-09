@@ -113,17 +113,28 @@ code accepts either - plus `closeup_eval_pairs`, `closeup_poses`, `intrinsics`.
 
 DL3DV-Closeup is a set of close-up splits over scenes from the public
 [DL3DV-10K Benchmark](https://github.com/DL3DV-10K/Dataset). The 44 `split.json` files are available at
-[`data/DL3DV-Closeup/`](data/DL3DV-Closeup). To evaluate, assemble a scene folder from **your local DL3DV-10K Benchmark** copy so it matches the [scene-folder layout](#data) above, using the split as the manifest:
+[`data/DL3DV-Closeup/`](data/DL3DV-Closeup). To evaluate, keep **your local DL3DV-10K Benchmark** copy
+(`<DL3DV_ROOT>/<scene_id>/nerfstudio/...`) available and assemble a scene folder from it so it matches the
+[scene-folder layout](#data) above, using the split as the manifest:
 
 - `split.json` → copy our file as is.
-- `images/` → the frames listed in `training_frames`, taken from the scene's DL3DV
-  images (we used `nerfstudio/images_4`, a.k.a. `data_factor: 4`).
+- `images/` → **only** the frames listed in `training_frames`, from the scene's
+  `nerfstudio/images_4` (`data_factor: 4`). This folder is also the reference-view pool,
+  so do not add any other frames.
 - `closeup_gt/` → the CLOSEUP frames named in `closeup_poses` / `closeup_eval_pairs`
-  (`closeup_frame`), same source.
-- `sparse/0/` → a COLMAP model covering those views (the scene's DL3DV
-  `nerfstudio/colmap`, or COLMAP re-run on the selected frames).
+  (`closeup_frame`), same source. Keep them out of `images/`.
+- `sparse/0/` → the scene's `nerfstudio/colmap/sparse/0`, **reduced to the `training_frames`**:
+  delete every other image, e.g.
+  `colmap image_deleter --input_path <in> --output_path <out> --image_names_path <frames_to_delete.txt>`.
+  Every image registered in `sparse/0` must exist in `images/`. Do not re-run COLMAP: the
+  close-up poses are in DL3DV's coordinate frame.
 
 Then `python verify_scene.py DL3DV-Closeup/<scene_id>` to confirm the folder is complete.
+
+When evaluating DL3DV-Closeup, also set `export DL3DV_ROOT=/path/to/DL3DV-10K-Benchmark`:
+`evaluate.py` uses `<scene_id>/nerfstudio/transforms.json` there to align the split's close-up
+poses with the COLMAP model. Without it, close-ups are rendered from the wrong viewpoints
+(no error is raised).
 See [`data/DL3DV-Closeup/README.md`](data/DL3DV-Closeup/README.md) for the exact field
 reference.
 
